@@ -153,6 +153,8 @@
             char letter;
             do
             {
+                // when we create a string with three double quotes on each side """ """, then all formatting will be display to the string, including new line characters.
+                // this way we can write a menu easily instead of writing multiple Console.WriteLine() any time we want a new line character.
                 Console.WriteLine("""
                     Give me an action:
                     [a] = Write 'awesome'
@@ -160,9 +162,12 @@
                     [c] = Write 'cool'
                     [q] = Quit program
                     """);
+
+                // Get the letter 
                 Console.Write("Enter a letter: ");
                 letter = char.Parse(Console.ReadLine());
 
+                // Use a switch statement to analyze the letter and perform an operation based on the value.
                 switch (letter)
                 {
                     case 'a':
@@ -178,6 +183,9 @@
                         Console.WriteLine($"You entered {letter}.");
                         break;
                 }
+
+                // Lastly we check if the user entered the letter 'q', if they did, we exit the loop
+                // if they did not, we run the loop again until the user presses 'q'
             } while (letter != 'q');
         }
     }
